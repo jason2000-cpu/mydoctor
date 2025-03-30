@@ -27,7 +27,7 @@ function SignupPage() {
 
             <div className='flex justify-center mt-10 space-x-2'>
                 <span className='text-[#858585] font-sans'>Already have an Account ?</span>
-                <Link to={"/login"} className='text-[#0B8FAC] font-semibold'>Login</Link>
+                <Link to={"/"} className='text-[#0B8FAC] font-semibold'>Login</Link>
             </div>
         </div>
     )
