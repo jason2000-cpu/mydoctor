@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { TextField, Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 
 function LoginForm() {
@@ -9,14 +10,18 @@ function LoginForm() {
         formState: { errors }
     } = useForm();
 
+    const navigate = useNavigate();
+
+
     const onSubmit = (data) => {
         console.log(data)
+        navigate("/dashboard")
     }
 
     return (
         <div >
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-10 w-full">
-                <div className="w-90">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-10 mx-4">
+                <div >
                     <TextField
                         fullWidth
                         label="First Name"
@@ -26,7 +31,7 @@ function LoginForm() {
                     />
                     { errors.Fname && (<p className="text-xs text-red-600">First name is required</p>)}
                 </div>
-                <div className="w-90">
+                <div >
                     <TextField
                         fullWidth
                         label="Last Name"

@@ -1,9 +1,51 @@
+
 importScripts(
     'https://storage.googleapis.com/workbox-cdn/releases/7.3.0/workbox-sw.js'
 );
 
 // This is your Service Worker, you can put any of your custom Service Worker
 // code in this file, above the `precacheAndRoute` line.
+
+// perform caching on install
+
+const cacheName = "static-shell-v1";
+const resourcesToPrecache = [
+    '/',
+    '/index.html',
+    '/widget/',
+    '/assets/',
+    '/.well-known/'
+];
+
+self.addEventListener('install', event => {
+    console.log('Service worker install event!');
+    event.waitUntil(
+        caches.open(cacheName)
+        .then(cache => {
+            return cache.addAll(resourcesToPrecache)
+        })
+        .catch(error => {
+            console.log('[Service Worker] Pre-caching failed.', error)
+        })
+    )
+});
+
+self.addEventListener('activate', event => {
+    console.log('[Service Worker] Activate event');
+    event.waitUntil(
+        caches.keys().then(cacheNames => {
+            return Promise.all(
+                cacheNames.map(cache => {
+                    if(cache != cacheName) {
+                        console.log('[Service Worker] Deleting old cache::', cache);
+                        return caches.delete(cache);
+                    }
+                })
+            )
+        })
+    );
+    self.clients.claim();
+})
 
 // When widget is installed/pinned, push initial state.
 self.addEventListener('widgetinstall', (event) => {

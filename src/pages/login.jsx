@@ -4,7 +4,7 @@ import LoginForm from '../components/forms/LoginForm'
 function LoginPage () {
 
     return (
-        <div className='flex flex-col items-center  space-y-4 h-[100vh]'>
+        <div className='space-y-4 h-[100vh]'>
             <div className='flex flex-col items-center space-y-12 mt-16'>
                 <div className='flex flex-col items-center'>
                     <img src='/assets/images/MyDoctor_logo.PNG'  className='size-20' alt='MY DOCTOR' />
@@ -12,7 +12,7 @@ function LoginPage () {
                     <span  className='tracking-widest font-light'>~ A LEGACY OF CARE</span>
                 </div>
                 <div>
-                    <span className='text-lg font-'>Login To Continue</span>
+                    <span className='text-lg '>Login To Continue</span>
                 </div>
             </div>
             <LoginForm />
