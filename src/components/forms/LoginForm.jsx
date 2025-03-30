@@ -19,33 +19,34 @@ function LoginForm() {
     }
 
     return (
-        <div >
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-10 mx-4">
-                <div >
+        <div className="">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-10 mx-4 md:mx-0 md:flex md:flex-col md:items-center">
+                <div className="md:w-[25rem]">
                     <TextField
                         fullWidth
-                        label="First Name"
-                        name="Fname"
+                        label="Username"
+                        name="username"
                         margin="dense"
-                        {...register("Fname", {required: true })}
+                        {...register("username", {required: true })}
                     />
-                    { errors.Fname && (<p className="text-xs text-red-600">First name is required</p>)}
+                    { errors.username && (<p className="text-xs text-red-600">Username name is required</p>)}
                 </div>
-                <div >
+                <div className="md:w-[25rem]">
                     <TextField
                         fullWidth
-                        label="Last Name"
-                        name="Sname"
+                        label="Password"
+                        name="password"
                         margin="dense"
                         {...register("Sname", {required: true})}
                     />
-                    { errors.Sname && (<p className="text-xs text-red-600">Last name is required</p>)}
+                    { errors.password && (<p className="text-xs text-red-600">Password name is required</p>)}
                 </div>
 
                 <Button 
                     variant="contained" 
-                    fullWidth type="submit"
-                    >Submit</Button>
+                    className="md:w-[25rem]"
+                    type="submit"
+                    >Login</Button>
             </form>
         </div>
     )

@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@mui/material/CssBaseline"
+import { ThemeProvider } from "@mui/material/styles"
 import theme from "./theme"
 
 function ThemeContext({ children }) {
