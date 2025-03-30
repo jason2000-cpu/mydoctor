@@ -3,3 +3,40 @@
 @import '@fontsource/roboto/400.css';
 @import '@fontsource/roboto/500.css';
 @import '@fontsource/roboto/700.css';
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+/* Custom styles */
+:root {
+    --color-primary: #0B8FAC;
+    --color-secondary: #7BC1B7;
+    --color-light: #D2EBE7;
+    --color-gray: #858585;
+    --font-sans: 'Open Sans', sans-serif;
+    --font-heading: 'Poppins', sans-serif;
+  }
+  
+  /* Apply to Tailwind utility classes */
+  .bg-primary {
+    background-color: var(--color-primary);
+  }
+  
+  .text-primary {
+    color: var(--color-primary);
+  }
+  
+  .text-secondary {
+    color: var(--color-secondary);
+  }
+  
+  .text-dark {
+    color: var(--color-dark);
+  }
+  
+  .font-sans {
+    font-family: var(--font-sans);
+  }
+  
+  .font-heading {
+    font-family: var(--font-heading);
+  }

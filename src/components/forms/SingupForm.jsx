@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { useForm } from "react-hook-form";
 import { TextField, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import { IoMdEye } from "react-icons/io";
 import { IoMdEyeOff } from "react-icons/io";
 
-
-function LoginForm() {
+function SignupForm() {
     const [ showPassword, setShowPassword ] = useState(false)
     const {
         register,
@@ -24,16 +23,36 @@ function LoginForm() {
 
     return (
         <div className="">
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-10 mx-4 md:mx-0 md:flex md:flex-col md:items-center">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-2 mx-4 md:mx-0 md:flex md:flex-col md:items-center">
                 <div className="md:w-[25rem]">
                     <TextField
                         fullWidth
-                        label="Username"
-                        name="username"
+                        label="First Name"
+                        name="Fname"
                         margin="dense"
-                        {...register("username", {required: true })}
+                        {...register("Fname", {required: true })}
                     />
-                    { errors.username && (<p className="text-xs text-red-600">Username name is required</p>)}
+                    { errors.Fname && (<p className="text-xs text-red-600">First name is required</p>)}
+                </div>
+                <div className="md:w-[25rem]">
+                    <TextField
+                        fullWidth
+                        label="Last Name"
+                        name="Sname"
+                        margin="dense"
+                        {...register("Sname", {required: true })}
+                    />
+                    { errors.Sname && (<p className="text-xs text-red-600">Last name is required</p>)}
+                </div>
+                <div className="md:w-[25rem]">
+                    <TextField
+                        fullWidth
+                        label="Phone"
+                        name="phone"
+                        margin="dense"
+                        {...register("phone", {required: true })}
+                    />
+                    { errors.phone && (<p className="text-xs text-red-600">Phone number is required</p>)}
                 </div>
                 <div className="md:w-[25rem]">
                     <div className="flex items-center">
@@ -43,7 +62,7 @@ function LoginForm() {
                             type={showPassword ? "text": "password"}
                             name="password"
                             margin="dense"
-                            {...register("Sname", {required: true})}
+                            {...register("password", {required: true})}
                         />
                         <div 
                             onClick={() => setShowPassword(!showPassword)} 
@@ -70,4 +89,5 @@ function LoginForm() {
     )
 }
 
-export default LoginForm;
+
+export default SignupForm;
